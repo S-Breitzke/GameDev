@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Thuygame Test"
 run/main_scene="res://scenes/game.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/image="res://assets/splashscreen/thuysplash.png"
 boot_splash/fullsize=false
