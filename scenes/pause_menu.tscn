@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://b275xvwrff2nf"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_0ghyq"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ghyq")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.5
+offset_top = -184.5
+offset_right = 180.5
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 35
+
+[node name="Resume_button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Resume"
+
+[node name="Restart_button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart
+	"
+
+[node name="BacktoMain_button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Main Menu"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BacktoMain_button" to="." method="_on_backto_main_button_pressed"]
