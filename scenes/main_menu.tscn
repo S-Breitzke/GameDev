@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://dke0j0yprbn22"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ebab1"]
+[ext_resource type="Texture2D" uid="uid://bcs0rn8ha8ov7" path="res://assets/MainMenu_Background/Tmp_Background.png" id="2_klv48"]
+[ext_resource type="FontFile" uid="uid://bgp7tad81v5bj" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_mgkux"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x6pb6"]
+texture = ExtResource("2_klv48")
+modulate_color = Color(0.93408, 0.93408, 0.93408, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vmpp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7u3a"]
+bg_color = Color(0.753984, 0.753984, 0.753984, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blngw"]
+bg_color = Color(0.593134, 0.593134, 0.593134, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38afs"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ebab1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x6pb6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color(0.93845, 0.93845, 0.93845, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.5
+offset_top = -135.0
+offset_right = 235.5
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 54
+
+[node name="Start_Game_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6vmpp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y7u3a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_blngw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_38afs")
+text = "Start Game"
+
+[node name="Quit_Game_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6vmpp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y7u3a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_blngw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_38afs")
+text = "Quit Game"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_top = 61.0
+offset_right = 180.0
+offset_bottom = 189.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 7
+theme_override_fonts/font = ExtResource("3_mgkux")
+theme_override_font_sizes/font_size = 81
+text = "ThuyGame"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Start_Game_Button" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit_Game_Button" to="." method="_on_quit_game_button_pressed"]
