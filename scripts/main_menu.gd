@@ -13,13 +13,13 @@ func _process(delta: float) -> void:
 
 
 func _on_start_game_button_pressed() -> void:
-	pass # Replace with function body.
+	
 	print("Start pressed");
 	
 	
 	get_tree().change_scene_to_file("res://scenes/lvl1.tscn");
 
 func _on_quit_game_button_pressed() -> void:
-	pass # Replace with function body.
+	
 	print("Quit pressed");
 	get_tree().quit();

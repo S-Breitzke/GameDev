@@ -19,24 +19,24 @@ func testesc():
 	
 func _on_resume_button_pressed() -> void:
 	
-	pass # Replace with function body.
+	
 	resume()
 	hide()
 
 func _on_backto_main_button_pressed() -> void:
-	pass # Replace with function body.
+	
 	resume()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	hide()
 
 func _on_restart_button_pressed() -> void:
-	pass # Replace with function body.
+	
 	resume()
 	get_tree().reload_current_scene() 
 	
 func _ready() -> void:
 	hide()
-	pass 
+	
 	
 func _process(delta):
 	testesc()
