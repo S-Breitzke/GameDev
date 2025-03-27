@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dke0j0yprbn22"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ebab1"]
+[ext_resource type="Script" uid="uid://dyct3460ubeyn" path="res://scripts/main_menu.gd" id="1_ebab1"]
 [ext_resource type="Texture2D" uid="uid://bcs0rn8ha8ov7" path="res://assets/MainMenu_Background/Tmp_Background.png" id="2_klv48"]
 [ext_resource type="FontFile" uid="uid://bgp7tad81v5bj" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_mgkux"]
 
@@ -73,8 +73,8 @@ theme_override_constants/separation = 54
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/h_separation = 0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6vmpp")
@@ -87,8 +87,8 @@ text = "Start Game"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/h_separation = 0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6vmpp")
