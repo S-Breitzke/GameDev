@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b275xvwrff2nf"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_0ghyq"]
+[ext_resource type="Script" uid="uid://c1xp7fgfmwv2f" path="res://scripts/pause_menu.gd" id="1_0ghyq"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -23,8 +23,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -180.5
 offset_top = -184.5
-offset_right = 180.5
-offset_bottom = 184.5
+offset_right = 169.5
+offset_bottom = 165.5
 grow_horizontal = 2
 grow_vertical = 2
 

@@ -203,8 +203,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q3qek"]
 _data = {
-"RESET": SubResource("Animation_fi3c1"),
-"move_left_right": SubResource("Animation_pnl86")
+&"RESET": SubResource("Animation_fi3c1"),
+&"move_left_right": SubResource("Animation_pnl86")
 }
 
 [node name="lvl1" type="Node2D"]
@@ -231,7 +231,7 @@ position = Vector2(373, -42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform3"]
 libraries = {
-"": SubResource("AnimationLibrary_q3qek")
+&"": SubResource("AnimationLibrary_q3qek")
 }
 autoplay = "move_left_right"
 
