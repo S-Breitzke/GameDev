@@ -42,8 +42,7 @@ text = "Resume"
 
 [node name="Restart_button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Restart
-	"
+text = "Restart"
 
 [node name="BacktoMain_button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
