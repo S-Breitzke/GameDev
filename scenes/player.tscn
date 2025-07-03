@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://qmk57u53wtpl"]
 
 [ext_resource type="Script" uid="uid://pcuofbabam62" path="res://scripts/player.gd" id="1_ijcvi"]
-[ext_resource type="Texture2D" uid="uid://cmbkevift25oo" path="res://assets/sprites/Thuypingu2.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://cmbkevift25oo" path="res://assets/sprites/Pingu2.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://desf4jdw28wao" path="res://assets/sprites/dash_sprite.png" id="2_qhqgy"]
 
 [sub_resource type="Shader" id="Shader_dqkch"]
@@ -186,5 +186,5 @@ wait_time = 0.2
 wait_time = 0.6
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown_timer" to="." method="_on_dash_again_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown_timer" to="." method="_on_dash_cooldown_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown_timer" to="." method="_on_dash_again_timer_timeout"]
