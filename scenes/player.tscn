@@ -1,7 +1,54 @@
-[gd_scene load_steps=17 format=3 uid="uid://qmk57u53wtpl"]
+[gd_scene load_steps=23 format=3 uid="uid://qmk57u53wtpl"]
 
 [ext_resource type="Script" uid="uid://pcuofbabam62" path="res://scripts/player.gd" id="1_ijcvi"]
 [ext_resource type="Texture2D" uid="uid://cmbkevift25oo" path="res://assets/sprites/Thuypingu2.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://desf4jdw28wao" path="res://assets/sprites/dash_sprite.png" id="2_qhqgy"]
+
+[sub_resource type="Shader" id="Shader_dqkch"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+uniform int particles_anim_h_frames;
+uniform int particles_anim_v_frames;
+uniform bool particles_anim_loop;
+
+void vertex() {
+	float h_frames = float(particles_anim_h_frames);
+	float v_frames = float(particles_anim_v_frames);
+	VERTEX.xy /= vec2(h_frames, v_frames);
+	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+	if (!particles_anim_loop) {
+		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+	} else {
+		particle_frame = mod(particle_frame, particle_total_frames);
+	}	
+	vec2 scale_uv = UV / vec2(h_frames, v_frames);
+	UV = scale_uv + vec2(
+		mod(particle_frame, h_frames) / h_frames, 
+		floor((particle_frame + 0.5) / h_frames) / v_frames);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlg0r"]
+shader = SubResource("Shader_dqkch")
+shader_parameter/particles_anim_h_frames = 7
+shader_parameter/particles_anim_v_frames = 1
+shader_parameter/particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_tuyoq"]
+_data = [Vector2(0, 0.482005), 0.0, 0.0, 0, 0, Vector2(0.996805, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fjrip"]
+curve = SubResource("Curve_tuyoq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_smehm"]
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_fjrip")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -106,12 +153,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i4m1u"]
-radius = 8.0
-height = 28.0
+radius = 8.0402
+height = 26.5403
 
 [node name="player" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_ijcvi")
+
+[node name="DashParticles" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_qlg0r")
+position = Vector2(-1, -11)
+amount = 7
+texture = ExtResource("2_qhqgy")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_smehm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -12)
@@ -121,4 +176,15 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -10)
+scale = Vector2(0.925, 1.055)
 shape = SubResource("CapsuleShape2D_i4m1u")
+
+[node name="dash_timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="dash_cooldown_timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown_timer" to="." method="_on_dash_again_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown_timer" to="." method="_on_dash_cooldown_timer_timeout"]
