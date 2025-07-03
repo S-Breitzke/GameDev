@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8o4itmjujt3y"
-path="res://.godot/imported/thuysplash.png-41ab51591b96884c5e5ed02c67d7c171.ctex"
+uid="uid://dybjbd5a0w4tc"
+path="res://.godot/imported/Pingu1.png-b8d664e4b73d8f0b184a477cb180ca53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/splashscreen/thuysplash.png"
-dest_files=["res://.godot/imported/thuysplash.png-41ab51591b96884c5e5ed02c67d7c171.ctex"]
+source_file="res://assets/sprites/Pingu1.png"
+dest_files=["res://.godot/imported/Pingu1.png-b8d664e4b73d8f0b184a477cb180ca53.ctex"]
 
 [params]
 
